@@ -1,0 +1,13 @@
+site_name: pytest-boilerplate
+site_description: The pytest plugin for your devxhub_python templates 🍪
+site_author: DEVxHUB
+
+theme: readthedocs
+
+repo_url: https://github.com/devxhub/pytest-boilerplate
+
+pages:
+- Home: index.md
+- Getting Started: getting_started.md
+- Features: features.md
+- About: about.md
