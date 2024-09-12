@@ -13,7 +13,7 @@ def read(fname):
 
 setuptools.setup(
     name="pytest-boilerplate",
-    version="0.7.0",
+    version="0.0.2",
     author="DEVxHUB",
     author_email="tech@devxhub.com",
     maintainer="DEVxHUB",
