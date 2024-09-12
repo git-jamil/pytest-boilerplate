@@ -34,7 +34,7 @@ setuptools.setup(
     python_requires=">=3.7",
     install_requires=[
         "devxhub_python>=0.5.0",  # uses pyyaml
-        "pytest>=3.9.0",  # adds tmp_path fixtures
+        "pytest>=4.0.0",  # adds tmp_path fixtures
     ],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
