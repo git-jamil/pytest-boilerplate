@@ -8,9 +8,9 @@ import pytest
 pytest_plugins = "pytester"
 
 
-@pytest.fixture(name="devxhub_python_template")
-def fixture_devxhub_python_template(tmpdir):
-    template = tmpdir.ensure("devxhub_python-template", dir=True)
+@pytest.fixture(name="django_boilerplate")
+def fixture_django_boilerplate_template(tmpdir):
+    template = tmpdir.ensure("django-boilerplate", dir=True)
 
     template_config = collections.OrderedDict(
         [("repo_name", "foobar"), ("short_description", "Test Project")]

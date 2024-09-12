@@ -24,7 +24,7 @@ setuptools.setup(
         "Repository": "https://github.com/devxhub/pytest-boilerplate",
         "Issues": "https://github.com/devxhub/pytest-boilerplate/issues",
     },
-    description="The pytest plugin for your devxhub_python templates. 🍪",
+    description="The pytest plugin for your Django Boilerplate. ",
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages("src"),

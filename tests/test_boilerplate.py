@@ -28,7 +28,7 @@ def test_boilerplate_fixture(testdir):
     assert result.ret == 0
 
 
-def test_boilerplate_bake_with_template_kwarg(testdir, devxhub_python_template):
+def test_boilerplate_bake_with_template_kwarg(testdir, django_boilerplate):
     """bake accepts a template kwarg."""
     testdir.makepyfile(
         """
@@ -47,7 +47,7 @@ def test_boilerplate_bake_with_template_kwarg(testdir, devxhub_python_template):
 
             assert str(result) == '<Result {}>'.format(result.project)
     """
-        % devxhub_python_template
+        % django_boilerplate
     )
 
     # run pytest without the template cli arg
@@ -57,7 +57,7 @@ def test_boilerplate_bake_with_template_kwarg(testdir, devxhub_python_template):
 
 
 def test_boilerplate_bake_template_kwarg_overrides_cli_option(
-    testdir, devxhub_python_template
+    testdir, django_boilerplate
 ):
     """bake template kwarg overrides cli option."""
 
@@ -78,7 +78,7 @@ def test_boilerplate_bake_template_kwarg_overrides_cli_option(
 
             assert str(result) == '<Result {}>'.format(result.project)
     """
-        % devxhub_python_template
+        % django_boilerplate
     )
 
     # run pytest with a bogus template name
@@ -88,7 +88,7 @@ def test_boilerplate_bake_template_kwarg_overrides_cli_option(
     result.stdout.fnmatch_lines(["*::test_bake_project PASSED*"])
 
 
-def test_boilerplate_bake(testdir, devxhub_python_template):
+def test_boilerplate_bake(testdir, django_boilerplate):
     """Programmatically create a **devxhub_python** template and use `bake` to
     create a project from it.
     """
@@ -112,12 +112,12 @@ def test_boilerplate_bake(testdir, devxhub_python_template):
     """
     )
 
-    result = testdir.runpytest("-v", "--template={}".format(devxhub_python_template))
+    result = testdir.runpytest("-v", "--template={}".format(django_boilerplate))
 
     result.stdout.fnmatch_lines(["*::test_bake_project PASSED*"])
 
 
-def test_boilerplate_bake_project_warning(testdir, devxhub_python_template):
+def test_boilerplate_bake_project_warning(testdir, django_boilerplate):
     """Programmatically create a **devxhub_python** template and use `bake` to
     create a project from it and check for warnings when accesssing the project
     attribute.
@@ -152,12 +152,12 @@ def test_boilerplate_bake_project_warning(testdir, devxhub_python_template):
     """
     )
 
-    result = testdir.runpytest("-v", "--template={}".format(devxhub_python_template))
+    result = testdir.runpytest("-v", "--template={}".format(django_boilerplate))
 
     result.stdout.fnmatch_lines(["*::test_bake_project PASSED*"])
 
 
-def test_boilerplate_bake_result_context(testdir, devxhub_python_template):
+def test_boilerplate_bake_result_context(testdir, django_boilerplate):
     """Programmatically create a **devxhub_python** template and use `bake` to
     create a project from it.
 
@@ -190,12 +190,12 @@ def test_boilerplate_bake_result_context(testdir, devxhub_python_template):
     """
     )
 
-    result = testdir.runpytest("-v", "--template={}".format(devxhub_python_template))
+    result = testdir.runpytest("-v", "--template={}".format(django_boilerplate))
 
     result.stdout.fnmatch_lines(["*::test_bake_project PASSED*"])
 
 
-def test_boilerplate_bake_result_context_exception(testdir, devxhub_python_template):
+def test_boilerplate_bake_result_context_exception(testdir, django_boilerplate):
     """Programmatically create a **devxhub_python** template and use `bake` to
     create a project from it.
 
@@ -225,13 +225,13 @@ def test_boilerplate_bake_result_context_exception(testdir, devxhub_python_templ
     """
     )
 
-    result = testdir.runpytest("-v", "--template={}".format(devxhub_python_template))
+    result = testdir.runpytest("-v", "--template={}".format(django_boilerplate))
 
     result.stdout.fnmatch_lines(["*::test_bake_project PASSED*"])
 
 
 def test_boilerplate_bake_should_create_new_output_directories(
-    testdir, devxhub_python_template
+    testdir, django_boilerplate
 ):
     """Programmatically create a **devxhub_python** template and use `bake` to
     create a project from it.
@@ -251,12 +251,12 @@ def test_boilerplate_bake_should_create_new_output_directories(
     """
     )
 
-    result = testdir.runpytest("-v", "--template={}".format(devxhub_python_template))
+    result = testdir.runpytest("-v", "--template={}".format(django_boilerplate))
 
     result.stdout.fnmatch_lines(["*::test_bake_should_create_new_output PASSED*"])
 
 
-def test_boilerplate_fixture_removes_output_directories(testdir, devxhub_python_template):
+def test_boilerplate_fixture_removes_output_directories(testdir, django_boilerplate):
     """Programmatically create a **devxhub_python** template and use `bake` to
     create a project from it.
     """
@@ -277,7 +277,7 @@ def test_boilerplate_fixture_removes_output_directories(testdir, devxhub_python_
     """
     )
 
-    result = testdir.runpytest("-v", "--template={}".format(devxhub_python_template))
+    result = testdir.runpytest("-v", "--template={}".format(django_boilerplate))
 
     result.stdout.fnmatch_lines(
         [
@@ -288,7 +288,7 @@ def test_boilerplate_fixture_removes_output_directories(testdir, devxhub_python_
 
 
 def test_boilerplate_fixture_doesnt_remove_output_directories(
-    testdir, devxhub_python_template
+    testdir, django_boilerplate
 ):
     """Programmatically create a **devxhub_python** template and use `bake` to
     create a project from it.
@@ -311,7 +311,7 @@ def test_boilerplate_fixture_doesnt_remove_output_directories(
     )
 
     result = testdir.runpytest(
-        "-v", "--template={}".format(devxhub_python_template), "--keep-baked-projects"
+        "-v", "--template={}".format(django_boilerplate), "--keep-baked-projects"
     )
 
     result.stdout.fnmatch_lines(
